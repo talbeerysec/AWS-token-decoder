@@ -3,7 +3,7 @@ import { Container, Divider, Form, Header, TextArea, Input } from "semantic-ui-r
 import { parseInput, bufferToPrettyHex } from "./hexUtils";
 import "./App.css";
 import ProtobufDisplay from "./ProtobufDisplay";
-import { decodeProto } from "./protobufDecoder";
+import { decodeAWSToken} from "./protobufDecoder";
 
 function App() {
   const [hex, setHex] = useState("");
@@ -34,21 +34,21 @@ function App() {
   const result = hexBuffer ? (
     <Fragment>
       <Header as="h2">Result</Header>
-      <ProtobufDisplay value={decodeProto(hexBuffer)} />
+      <ProtobufDisplay value={decodeAWSToken(hexBuffer)} />
     </Fragment>
   ) : null;
 
   return (
     <Container>
-      <Header as="h1">Protobuf Decoder</Header>
+      <Header as="h1">AWS Session Token Decoder</Header>
       <p>
-        Tool to decode Protobuf without having the original .proto files. All
+        Tool to decode AWS Session Token without having the original .proto files. All
         decoding is done locally via JavaScript.
       </p>
       <Form>
         <Form.Group>
           <TextArea
-            placeholder="Paste Protobuf or gRPC request as hex or base64"
+            placeholder="Paste AWS Session Token as hex or base64"
             onChange={onHexChanged}
             value={hex}
           />
@@ -73,7 +73,9 @@ function App() {
       {result}
       <Divider />
       <p>
-        Made by pawitp. Contribute on{" "}
+        Created by Tal Be'ery. Contribute on{" "}
+        <a href="https://github.com/talbeerysec/AWS-token-decoder">GitHub</a>.
+        Based on pawitp. Contribute on{" "}
         <a href="https://github.com/pawitp/protobuf-decoder">GitHub</a>.
       </p>
     </Container>

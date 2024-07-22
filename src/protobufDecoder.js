@@ -21,10 +21,15 @@ class BufferReader {
     return result;
   }
 
+  SkipAWSHeader() {
+    this.offset++; // removing AWS type header
+    
+  }
+
+
   // gRPC has some additional header - remove it
   trySkipGrpcHeader() {
-    const backupOffset = this.offset;
-
+    const backupOffset = this.offset; 
     if (this.buffer[this.offset] === 0 && this.leftBytes() >= 5) {
       this.offset++;
       const length = this.buffer.readInt32BE(this.offset);
@@ -69,9 +74,16 @@ export const TYPES = {
   FIXED32: 5
 };
 
+export function decodeAWSToken(buffer) {
+  const reader = new BufferReader(buffer);
+  reader.SkipAWSHeader();
+  return decodeProto(reader.buffer.slice(1));
+}
+
 export function decodeProto(buffer) {
   const reader = new BufferReader(buffer);
   const parts = [];
+
 
   reader.trySkipGrpcHeader();
 
