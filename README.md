@@ -6,7 +6,7 @@
 
 AWS Token Decoder is a web application based on React to decode and visualize AWS Session Tokens into prettified table layout.
 
-> For live version, please visit: [https://protobuf-decoder.netlify.app/](https://aws-token-decoder.netlify.app/)
+> For live version, please visit: (https://aws-token-decoder.netlify.app/)
 
 ## Getting Started
 
