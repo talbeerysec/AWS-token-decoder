@@ -1,10 +1,10 @@
-# Protobuf Decoder
+# AWS Token Decoder
 
 [![CircleCI](https://circleci.com/gh/pawitp/protobuf-decoder.svg?style=svg)](https://circleci.com/gh/pawitp/protobuf-decoder)
 [![codecov](https://codecov.io/gh/pawitp/protobuf-decoder/branch/master/graph/badge.svg)](https://codecov.io/gh/pawitp/protobuf-decoder)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
 
-Protobuf Decoder is a web application based on React to decode and visualize AWS tokens into prettified table layout.
+AWS Token Decoder is a web application based on React to decode and visualize AWS Session Tokens into prettified table layout.
 
 > For live version, please visit: [https://protobuf-decoder.netlify.app/](https://aws-token-decoder.netlify.app/)
 
