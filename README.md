@@ -32,4 +32,4 @@ Paste Protobuf data in hex format, then press **Decode** button.
 
 **Output**
 
-<img src="https://raw.githubusercontent.com/pugkung/protobuf-decoder/master/screenshot.jpg" alt="screenshot" width="500"/>
+<img src="https://github.com/talbeerysec/AWS-token-decoder/blob/master/token-decoder-screenshot.png?raw=true" alt="screenshot" width="500"/>
