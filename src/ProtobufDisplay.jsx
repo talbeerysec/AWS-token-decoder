@@ -6,16 +6,20 @@ import { bufferToPrettyHex } from "./hexUtils";
 function ProtobufDisplay(props) {
   const { value } = props;
 
+  const type = (<p>AWS Session Token type: {value.type}</p> );
+
   const parts = value.parts.map((part, i) => {
     return <ProtobufPart key={i} part={part} />;
   });
 
+  
   const leftOver = value.leftOver.length ? (
     <p>Left over bytes: {bufferToPrettyHex(value.leftOver)}</p>
   ) : null;
 
   return (
     <Fragment>
+      {type}
       <Table celled>
         <Table.Header>
           <Table.Row>

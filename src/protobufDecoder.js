@@ -21,11 +21,6 @@ class BufferReader {
     return result;
   }
 
-  SkipAWSHeader() {
-    this.offset++; // removing AWS type header
-    
-  }
-
 
   // gRPC has some additional header - remove it
   trySkipGrpcHeader() {
@@ -75,9 +70,17 @@ export const TYPES = {
 };
 
 export function decodeAWSToken(buffer) {
-  const reader = new BufferReader(buffer);
-  reader.SkipAWSHeader();
-  return decodeProto(reader.buffer.slice(1));
+  const token_type = buffer[0];
+  console.log("token type: %d", token_type);
+  const prased_protobuf = decodeProto(buffer.slice(1));
+
+ return { 
+  parts: prased_protobuf.parts,
+  leftOver: prased_protobuf.leftOver,
+  type: token_type
+  }; 
+
+
 }
 
 export function decodeProto(buffer) {
