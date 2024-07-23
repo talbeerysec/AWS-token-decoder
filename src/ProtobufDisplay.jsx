@@ -6,7 +6,9 @@ import { bufferToPrettyHex } from "./hexUtils";
 function ProtobufDisplay(props) {
   const { value } = props;
 
-  const type = (<p>AWS Session Token type: {value.type}</p> );
+  const type = value.type ? (
+  <p>AWS Session Token type: {value.type}</p> 
+  ): null;
 
   const parts = value.parts.map((part, i) => {
     return <ProtobufPart key={i} part={part} />;
